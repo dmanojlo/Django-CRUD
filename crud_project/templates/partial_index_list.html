@@ -1,0 +1,22 @@
+{% for izdano in izdano_list %}
+
+    <tr>
+    <td>{{ izdano.redni_br }}</td>
+    <td>{{ izdano.naziv_imovine }}</td>
+    <td>{{ izdano.predao }}</td>
+    <td>{{ izdano.preuzeo }}</td>
+    <td>{{ izdano.barkod }}</td>
+    <td id="stat-{{ izdano.redni_br }}">{{ izdano.status }}</td>
+
+    <td>
+      <button type="button" class="btn btn-info js-update-izdano" data-url="{% url 'izdano_edit' izdano.redni_br %}">Uredi</button>
+      <button type="button" class="btn btn-danger js-delete-izdano" data-url="{% url 'izdano_delete' izdano.redni_br %}">Izbriši</button>
+      <button type="button" data_id="{{ izdano.redni_br }}"  class="button_id btn btn-primary">Status</button>
+    </td>
+    <!-- <td><a class="btn btn-info" href="/edit/{{ izdano.pk }}">Edit</a>
+        <a class="btn btn-danger" href="/delete/{{ izdano.pk }}">Delete</a>
+        <button type="button" data_id="{{ izdano.redni_br }}"  class="button_id btn btn-primary">Status</button> -->
+        <!--<a class="btn btn-info pos"  href="/status/{{ izdano.pk }}">Status</a>-->
+    <!-- </td> -->
+</tr>
+{% endfor %}
